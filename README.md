@@ -1,4 +1,6 @@
-# weekahrin's VIBE ZONE 
+# weekahrin's site
+
+![scrtvb](assets/heh.png)
 
 **Welcome to my digital sanctuary** – where code meets aesthetics and vibes are immaculate.  
 
