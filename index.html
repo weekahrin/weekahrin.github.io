@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weekahrin</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="wallpaper-overlay"></div>
+    <div class="question-marks" id="questionMarks"></div>
+    <div class="content">
+        <div class="bio-card">
+            <div class="header-container">
+                <div class="avatar-container">
+                    <img src="css/assets/avatar.png" alt="Аватар" class="avatar">
+                    <div class="avatar-frame"></div>
+                </div>
+                <div class="header-right">
+                    <h1>weekahrin</h1>
+                    <div class="music-player">
+                        <img src="css/assets/music.png" alt="Обложка трека" class="music-cover">
+                        <button id="playButton" class="play-button">
+                            <i class="fas fa-play"></i> </button>
+                        <span class="track-title">I Don't know (Erika)</span>
+                    </div>
+                </div>
+            </div>
+            <div class="title-divider"></div>
+            <div class="bio-text">
+                <p>Привет! Я frontend-разработчик с фокусом на создание красивых и функциональных интерфейсов.</p>
+                <p>Mobile UI/UX DSG, JAVA, Kotlin, CPP</p>
+                <p>Люблю минималистичный дизайн, чистый код и интуитивные пользовательские интерфейсы.</p>
+                <p>В свободное время создаю open-source проекты и изучаю новые технологии.</p>
+            </div>
+            <div class="button-group">
+                <div class="button-container">
+                    <a href="https://t.me/weekahrin" target="_blank" class="telegram-button">
+                        <i class="fab fa-telegram"></i> Telegram
+                    </a>
+                    <div class="button-divider"></div>
+                    <a href="https://github.com/weekahrin" target="_blank" class="github-button">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <audio id="bgMusic" loop>
+        <source src="css/assets/music.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('questionMarks');
+            const marksCount = 30;
+            for (let i = 0; i < marksCount; i++) {
+                const mark = document.createElement('div');
+                mark.classList.add('question-mark');
+                mark.textContent = '?';
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const rotation = Math.random() * 360;
+                const size = 16 + Math.random() * 32;
+                const opacity = 0.05 + Math.random() * 0.1;
+                mark.style.left = `${posX}%`;
+                mark.style.top = `${posY}%`;
+                mark.style.fontSize = `${size}px`;
+                mark.style.opacity = opacity;
+                mark.style.setProperty('--rotation', `${rotation}deg`);
+                container.appendChild(mark);
+            }
+            const audio = document.getElementById('bgMusic');
+            const playButton = document.getElementById('playButton');
+            const playIcon = playButton.querySelector('i');
+            audio.currentTime = 16;
+            const playAudio = () => {
+                const promise = audio.play();
+                if (promise !== undefined) {
+                    promise.then(() => {
+                        playIcon.classList.remove('fa-play');
+                        playIcon.classList.add('fa-pause');
+                    }).catch(error => {
+                        console.log("ploha");
+                        playIcon.classList.remove('fa-pause');
+                        playIcon.classList.add('fa-play');
+                    });
+                }
+            };
+            setTimeout(playAudio, 100);
+            playAudio();
+            playButton.addEventListener('click', function() {
+                if (audio.paused) {
+                    audio.play();
+                } else {
+                    audio.pause();
+                }
+            });
+            audio.addEventListener('play', () => {
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+            });
+            audio.addEventListener('pause', () => {
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+            });
+        });
+    </script>
+</body>
+</html>

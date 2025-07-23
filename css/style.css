@@ -1,0 +1,359 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto_regular.ttf') format('truetype');
+    font-weight: 400;
+}
+@font-face {
+    font-family: 'Roboto';
+    src: url('fonts/roboto_bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+html, body {
+height: 100%;
+}
+body {
+background: linear-gradient(135deg, #1a1a1a, #0d0d0d);
+font-family: 'Roboto', sans-serif;
+display: flex;
+flex-direction: column;
+color: #dedede;
+position: relative;
+min-height: 100vh;
+overflow-x: hidden;
+}
+.wallpaper-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-image: url('assets/wallpaper.png');
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+opacity: 0.12;
+z-index: 1;
+}
+.question-marks {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+overflow: hidden;
+z-index: 2;
+pointer-events: none;
+}
+.question-mark {
+position: absolute;
+color: #ccbda0;
+font-size: 24px;
+font-weight: 700;
+opacity: 0.1;
+transform: rotate(var(--rotation));
+}
+.content {
+position: relative;
+z-index: 10;
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+.bio-card {
+background: rgba(42, 42, 42, 0.88);
+border-radius: 24px;
+padding: 50px 40px;
+max-width: 580px;
+width: 100%;
+text-align: center;
+box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+border: 2px solid #97857d;
+backdrop-filter: blur(6px);
+animation: fadeInUp 0.8s ease-out;
+}
+.header-container {
+display: flex;
+align-items: center;
+gap: 30px;
+}
+.avatar-container {
+position: relative;
+width: 100px;
+height: 100px;
+flex-shrink: 0;
+transition: width 0.3s ease, height 0.3s ease;
+}
+.avatar {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+object-fit: cover;
+border: 4px solid #ccbda0;
+box-shadow: 0 0 20px rgba(221, 201, 178, 0.3);
+background: linear-gradient(45deg, #ccbda0, #ddc9b2, #97857d);
+}
+.avatar-frame {
+position: absolute;
+top: -8px;
+left: -8px;
+right: -8px;
+bottom: -8px;
+border-radius: 50%;
+border: 2px solid #ddc9b2;
+z-index: 5;
+pointer-events: none;
+}
+.header-right {
+flex: 1;
+display: flex;
+flex-direction: column;
+align-items: right;
+gap: 10px;
+min-width: 0;
+}
+h1 {
+color: #ddc9b2;
+font-size: clamp(1.5rem, 6vw, 2.25rem);
+font-weight: 800;
+letter-spacing: 1px;
+text-shadow: 0 0 10px rgba(221, 201, 178, 0.3);
+margin-bottom: 0;
+text-align: right;
+}
+.title-divider {
+height: 1px;
+width: 100%;
+background: linear-gradient(to right, transparent, #ccbda0, #ddc9b2, transparent);
+margin: 20px auto;
+border-radius: 1px;
+}
+.music-player {
+display: flex;
+align-items: center;
+gap: 8px;
+background: rgba(42, 42, 42, 0.7);
+border-radius: 30px;
+padding: 6px 10px;
+border: 1px solid #97857d;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+margin-top: 0;
+width: 100%;
+max-width: 500px;
+}
+.music-cover {
+width: 36px;
+height: 36px;
+border-radius: 50%;
+border: 2px solid #ccbda0;
+object-fit: cover;
+flex-shrink: 0;
+}
+.play-button {
+background: transparent;
+border: none;
+color: #ddc9b2;
+font-size: 16px;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+width: 30px;
+height: 30px;
+transition: all 0.2s ease;
+flex-shrink: 0;
+}
+.play-button:hover {
+color: #fff;
+transform: scale(1.1);
+}
+.track-title {
+color: #ddc9b2;
+justify-content: right;
+font-size: clamp(0.7rem, 3vw, 0.9rem);
+font-weight: 500;
+letter-spacing: 0.5px;
+white-space: nowrap;
+overflow: hidden;
+text-overflow: ellipsis;
+min-width: 0;
+}
+.bio-text {
+color: #dedede;
+font-size: 18px;
+line-height: 1.7;
+text-align: left;
+}
+.bio-text p {
+margin-bottom: 25px;
+position: relative;
+padding-left: 20px;
+}
+.bio-text p::before {
+content: "";
+position: absolute;
+left: 0;
+top: 4px;
+bottom: 4px;
+width: 4px;
+background: linear-gradient(to bottom, #ccbda0, #ddc9b2, #ccbda0);
+border-radius: 2px;
+box-shadow: 0 0 8px rgba(221, 201, 178, 0.5);
+}
+.button-group {
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 10px;
+}
+.button-container {
+display: flex;
+background: #3a3a3a;
+border-radius: 30px;
+padding: 4px;
+box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+.telegram-button, .github-button {
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #2a2a2a;
+color: #ddc9b2;
+font-family: 'Roboto', sans-serif;
+font-weight: 400;
+font-size: clamp(0.8rem, 4vw, 1rem);
+text-decoration: none;
+padding: 12px 24px;
+transition: all 0.3s ease;
+border: none;
+cursor: pointer;
+letter-spacing: 0.5px;
+white-space: nowrap;
+}
+.telegram-button {
+border-radius: 30px 0 0 30px;
+}
+.github-button {
+border-radius: 0 30px 30px 0;
+}
+.button-divider {
+width: 1px;
+height: 70%;
+background: linear-gradient(to bottom, #3a3a3a, #ccbda0, #3a3a3a);
+margin: auto 0;
+}
+.telegram-button:hover, .github-button:hover {
+background-color: #3a3a3a;
+color: #fff;
+}
+.telegram-button i, .github-button i {
+margin-right: 10px;
+font-size: clamp(1rem, 4.5vw, 1.25rem);
+}
+.telegram-button:hover i {
+color: #2AABEE;
+}
+.github-button:hover i {
+color: #fff;
+}
+@keyframes fadeInUp {
+from {
+opacity: 0;
+transform: translateY(30px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+@media (max-width: 520px) {
+.bio-card {
+padding: 40px 30px;
+}
+.header-container {
+    gap: 15px;
+}
+
+.avatar-container {
+    width: 70px;
+    height: 70px;
+}
+
+.bio-text {
+    font-size: 16px;
+}
+
+}
+@media (max-width: 420px) {
+.bio-card {
+padding: 30px 25px;
+}
+.avatar-container {
+    width: 70px;
+    height: 70px;
+}
+
+.avatar-frame {
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-width: 1px;
+}
+
+.avatar {
+    border-width: 3px;
+}
+
+.header-right {
+    gap: 5px;
+}
+
+.music-player {
+    padding: 5px 8px;
+    gap: 6px;
+}
+
+.music-cover {
+    width: 28px;
+    height: 28px;
+}
+
+.play-button {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+}
+
+.bio-text {
+    font-size: 14px;
+}
+
+.bio-text p {
+    padding-left: 15px;
+    margin-bottom: 15px;
+}
+
+.button-container {
+    padding: 2px;
+}
+
+.telegram-button, .github-button {
+    padding: 8px 12px;
+    font-size: 12px;
+}
+
+.telegram-button i, .github-button i {
+    margin-right: 4px;
+    font-size: 14px;
+}
+
+}
