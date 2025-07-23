@@ -1,6 +1,6 @@
 # weekahrin's site
 
-![scrtvb](css/assets/Screenshot_20250723_075112_TrebEdit.jpg)
+![scrtvb](css/assets/sc.jpg)
 
 **Welcome to my digital sanctuary** – where code meets aesthetics and vibes are immaculate.  
 
@@ -11,7 +11,7 @@ This is my personal bio page, a moody, atmospheric corner of the internet that s
 - **Moody AF gradient background** – for those deep midnight coding sessions (no)
 - **Animated floating "?"** – because life is full of mysteries (no)
 - **Symmetrical avatar & music player** – *a e s t h e t i c* balance  (no)
-- **Pulsing heart signature** – made with ✨passion✨ (and `@keyframes`)  
+- **Pulsing heart signature** – made with ✨passion✨ (and `@keyframes`) later (almost ready, but too lazy)
 - **Smooth animations** – smoother than your last pickup line (no)
 - **Responsive design** – looks good on your iPhone or your grandma's Nokia (maybe)
 
