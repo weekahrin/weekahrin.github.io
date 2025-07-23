@@ -2,7 +2,7 @@
 
 **Welcome to my digital sanctuary** – where code meets aesthetics and vibes are immaculate.  
 
-This is my personal bio page, a moody, atmospheric corner of the internet that screams *"I know CSS better than my own family"* *this is a lie..* xd
+This is my personal bio page, a moody, atmospheric corner of the internet that screams *"I know CSS better than my own family"* *but this is a lie..* xd
 
 ## 🎨 Features  
 
