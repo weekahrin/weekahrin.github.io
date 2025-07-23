@@ -1,6 +1,6 @@
 # weekahrin's site
 
-![scrtvb](assets/heh.png)
+![scrtvb](css/assets/Screenshot_20250723_075112_TrebEdit.jpg)
 
 **Welcome to my digital sanctuary** – where code meets aesthetics and vibes are immaculate.  
 
